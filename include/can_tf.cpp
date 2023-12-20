@@ -1,5 +1,5 @@
  #include <FlexCAN_T4.h>
-
+ #include <variable_def.h>
 int available(){
   return (_rxLength - _rxIndex);
 }
@@ -69,7 +69,8 @@ void can_get_data(){
       }
 }
 
-void can_show_data(){
+void can_show_data()
+{
 Serial.print("RPM =>");
 Serial.println(RPM);
 Serial.print("Temp =>");

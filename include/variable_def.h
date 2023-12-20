@@ -2,6 +2,8 @@
 #define VARIABLE_H
 
 //CAN variables
+#define can_data_rate 400
+int64_t can_last_time = 0;
 #include <FlexCAN_T4.h>
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 CAN_message_t msg;
