@@ -70,9 +70,14 @@ void can_get_data(){
 }
 
 void can_show_data(){
-
+Serial.print("RPM =>");
+Serial.println(RPM);
+Serial.print("Temp =>");
+Serial.println(temp);
+Serial.print("voltage =>");
+Serial.println(volts);
 }
 
 void can_debug(){
-    
+
 }

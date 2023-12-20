@@ -9,7 +9,6 @@ void setup()
     can_setup();
  }
 
-
 void loop() {
   can_get_data();
 }
