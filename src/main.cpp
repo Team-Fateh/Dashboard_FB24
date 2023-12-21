@@ -9,10 +9,13 @@ void setup()
     millis();
  }
 
-void loop() {
+void loop() 
+{
+    //CAN
     if(millis() - can_last_time >= can_data_rate){
   can_get_data();
   can_show_data();
   can_last_time = millis();
     }
+    
 }

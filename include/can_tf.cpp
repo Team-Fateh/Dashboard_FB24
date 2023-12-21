@@ -13,12 +13,12 @@ int Cread(){
 }
 
 void can_setup(){
-    can1.begin();
-  can1.setBaudRate(1000000);
+    can2.begin();
+  can2.setBaudRate(1000000);
 }
 
 void can_get_data(){
-    can1.read(msg);
+    can2.read(msg);
   for ( uint8_t i = 0; i < 8; i++ ) {
     _rxData[i]=msg.buf[i];
   }
