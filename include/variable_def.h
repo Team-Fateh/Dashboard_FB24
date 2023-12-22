@@ -5,9 +5,9 @@
 #include"MPU6050.h"
 #include<SD.h>
 
-// #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
-//     #include "Wire.h"
-// #endif
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
 
 // ***CAN variables***
 
@@ -29,7 +29,6 @@ float volts;
 int _rxLength;
 int _rxIndex;
 uint8_t _rxData[8];
-
 
 //***Gear variables***
 
@@ -98,5 +97,30 @@ float calibrationfactor_RR=0;
 float calibrationfactor_RL=0;
 
 unsigned long LC_time;
+
+//gear variables
+
+char gear;
+
+//hmi
+#define hmi_data_rate 200
+long unsigned int hmi_last_time=0;
+
+//rpm led
+#define num_led 18
+#define ledPin 29
+#define rpm_data_rate 100
+long unsigned int rpm_last_time=0;
+#include <WS2812Serial.h>
+byte drawingMemory[num_led*3];         //  3 bytes per LED
+DMAMEM byte displayMemory[num_led*12]; // 12 bytes per LED
+
+WS2812Serial leds(num_led, displayMemory, drawingMemory, ledPin, WS2812_GRB);
+#define RED    0xFF0000
+#define GREEN  0x00FF00
+#define BLUE   0x0000FF
+int light=0;
+int ledDur,ledOldDur,red;
+char comm;
 
 #endif

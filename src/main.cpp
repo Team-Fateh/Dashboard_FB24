@@ -5,6 +5,7 @@
 void setup()
  {
     Serial.begin(9600);
+    Serial5.begin(9600);
     can_setup();
     millis();
  }
