@@ -1,6 +1,8 @@
 #ifndef VARIABLE_H
 #define VARIABLE_H
+#include <FlexCAN_T4.h>
 
+#include <WS2812Serial.h>
 #include"HX711.h"
 #include"MPU6050.h"
 #include<SD.h>
@@ -13,7 +15,6 @@
 
 #define can_data_rate 400
 int64_t can_last_time = 0;
-#include <FlexCAN_T4.h>
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> can2;
 CAN_message_t msg;
 int32_t packetSize;
@@ -111,7 +112,6 @@ long unsigned int hmi_last_time=0;
 #define ledPin 29
 #define rpm_data_rate 100
 long unsigned int rpm_last_time=0;
-#include <WS2812Serial.h>
 byte drawingMemory[num_led*3];         //  3 bytes per LED
 DMAMEM byte displayMemory[num_led*12]; // 12 bytes per LED
 
@@ -122,5 +122,29 @@ WS2812Serial leds(num_led, displayMemory, drawingMemory, ledPin, WS2812_GRB);
 int light=0;
 int ledDur,ledOldDur,red;
 char comm;
+
+//speed
+volatile unsigned int totalCounts;
+    #define speedPin 34    //front right
+    #define slits 28   //Front wheel
+    int lastTime=0;      
+    float Speed;      
+
+//speed_rpm
+#define fdr 3.118    //Final Drive Rtaio
+    #define pgr 2.667    //Primary Gear Ratio
+    #define gr1 2.67
+    #define gr2 1.86
+    #define gr3 1.42
+    #define gr4 1.14
+    #define gr5 0.96
+    #define gr6 0.84
+    #define td 49.022    //Tire dia of Housier 19.3 inches
+    float SpeedRPM = 0.0;
+    float wheelRPM = 0.0;
+
+
+
+
 
 #endif
