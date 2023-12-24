@@ -99,9 +99,7 @@ float calibrationfactor_RL=0;
 
 unsigned long LC_time;
 
-//gear variables
 
-char gear;
 
 //hmi
 #define hmi_data_rate 200
@@ -119,6 +117,7 @@ WS2812Serial leds(num_led, displayMemory, drawingMemory, ledPin, WS2812_GRB);
 #define RED    0xFF0000
 #define GREEN  0x00FF00
 #define BLUE   0x0000FF
+#define WHITE  0x101010
 int light=0;
 int ledDur,ledOldDur,red;
 char comm;
