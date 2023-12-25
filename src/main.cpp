@@ -81,33 +81,33 @@ void loop()
     hmiCANRed();
   }
 
-  Serial.print(millis());
-  Serial.print(",");
-  Serial.print(RPM);            //RPM 
-  Serial.print(",");    
-  Serial.print(temp);           //temp
-  Serial.print(",");    
-  Serial.print(gear);           //gear
-  Serial.print(",");    
-  Serial.print(Speed);          //speed
-  Serial.print(",");    
-  Serial.print(volts);          //battery_voltage
-  Serial.print(",");    
-  Serial.print(datalog  );      //datalog_check
-  Serial.print(",");    
-  Serial.print(radCheck);       //radiator_check
-  Serial.print(",");    
-  Serial.print(fax);            //accelerometer x-axis
-  Serial.print(",");    
-  Serial.print(fay);            //accelerometer y-axis
-  Serial.print(",");            
-  Serial.print(faz);            //accelerometer z-axis
-  Serial.print(",");    
-  Serial.print(reading_FL);     //Front_left_LC
-  Serial.print(",");    
-  Serial.print(reading_FR);     //Front_right_LC
-  Serial.print(",");    
-  Serial.print(reading_RL);     //Rear_left_LC
-  Serial.print(",");  
-  Serial.println(reading_RR);   //Rear_right_LC
+  // Serial.print(millis());
+  // Serial.print(",");
+  // Serial.print(RPM);            //RPM 
+  // Serial.print(",");    
+  // Serial.print(temp);           //temp
+  // Serial.print(",");    
+  // Serial.print(gear);           //gear
+  // Serial.print(",");    
+  // Serial.print(Speed);          //speed
+  // Serial.print(",");    
+  // Serial.print(volts);          //battery_voltage
+  // Serial.print(",");    
+  // Serial.print(datalog  );      //datalog_check
+  // Serial.print(",");    
+  // Serial.print(radCheck);       //radiator_check
+  // Serial.print(",");    
+  // Serial.print(fax);            //accelerometer x-axis
+  // Serial.print(",");    
+  // Serial.print(fay);            //accelerometer y-axis
+  // Serial.print(",");            
+  // Serial.print(faz);            //accelerometer z-axis
+  // Serial.print(",");    
+  // Serial.print(reading_FL);     //Front_left_LC
+  // Serial.print(",");    
+  // Serial.print(reading_FR);     //Front_right_LC
+  // Serial.print(",");    
+  // Serial.print(reading_RL);     //Rear_left_LC
+  // Serial.print(",");  
+  // Serial.println(reading_RR);   //Rear_right_LC
 }

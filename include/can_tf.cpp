@@ -3,7 +3,7 @@
 #include<hmi.cpp>
 
 int available(){
-  return (_rxLength - _rxIndex);
+  return (_rxLength - _rxIndex); //_rxLength->packet size
 }
 
 int Cread(){
@@ -30,7 +30,7 @@ void can_get_data(){
     _rxLength=msg.len;
     packId=msg.id;
   }
-  if(packId==RPM_PKT_ID){                                        //RPM_PKT_ID 218099784
+  if(packId==RPM_PKT_ID){                     //RPM_PKT_ID 218099784
       int d=0;
       _rxIndex=0;
       while (available()){
@@ -44,7 +44,7 @@ void can_get_data(){
             }
        Cread(),d++;
       }
-      RPM=((rMSB*255)+rLSB);  
+      RPM=((rMSB*256)+rLSB);  
     }  
   if(packId==TEMPBATT_PKT_ID){                                       
       int e=0;
