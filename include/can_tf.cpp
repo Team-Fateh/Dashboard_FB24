@@ -1,5 +1,7 @@
- #include <FlexCAN_T4.h>
- #include <variable_def.h>
+#include <FlexCAN_T4.h>
+#include <variable_def.h>
+#include<hmi.cpp>
+
 int available(){
   return (_rxLength - _rxIndex);
 }
@@ -13,18 +15,21 @@ int Cread(){
 }
 
 void can_setup(){
-    can2.begin();
+  can2.begin();
   can2.setBaudRate(1000000);
 }
 
 void can_get_data(){
-    can2.read(msg);
-  for ( uint8_t i = 0; i < 8; i++ ) {
-    _rxData[i]=msg.buf[i];
+  if(can2.read(msg)){
+    hmiCANGreen();
+    canLastTime=canThisTime;
+    canThisTime=millis();
+    for ( uint8_t i = 0; i < 8; i++ ) {
+      _rxData[i]=msg.buf[i];
+    }
+    _rxLength=msg.len;
+    packId=msg.id;
   }
-  _rxLength=msg.len;
-  packId=msg.id;
-
   if(packId==RPM_PKT_ID){                                        //RPM_PKT_ID 218099784
       int d=0;
       _rxIndex=0;
@@ -77,8 +82,4 @@ Serial.print("Temp =>");
 Serial.println(temp);
 Serial.print("voltage =>");
 Serial.println(volts);
-}
-
-void can_debug(){
-
 }

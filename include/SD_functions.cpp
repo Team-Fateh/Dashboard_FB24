@@ -12,6 +12,12 @@ void setup_SD(){
   }    
 }
 
+void startLog()
+{
+  datalog= 1;
+  filecreate=1;
+}
+
 void sd_switch_pin_setup(){
   pinMode(sd_pin,INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(sd_pin),startLog,FALLING);
@@ -63,12 +69,6 @@ void appendFile(const char *path,String data){
     myFile.close();
 }
 
-void startLog()
-{
-  datalog= 1;
-  filecreate=1;
-}
-
 void dataLogging(){
   setup_SD();
   if (datalog == 1){
@@ -102,12 +102,12 @@ void dataLogging(){
     String end = "\n";
     int m = millis();
     String mystr = m+comma+RPM_SD+comma+temp_SD+comma+gear_SD
-                    +comma+comma+speedRPM_SD+comma+comma+battery_SD
+                    +comma+comma+speedRPM_SD+comma+battery_SD
                     +comma+data_SD+comma+accelx_SD+comma+accely_SD+end; //+brake_SD
     appendFile(file_name, mystr);
     if(digitalRead(sd_pin)==0){
       datalog=0;
-    }
-  }
+    }
+  }
 }
 

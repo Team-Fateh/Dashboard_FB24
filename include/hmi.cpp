@@ -58,7 +58,7 @@ void hmiCANGreen(){
     Serial5.write(0xff);
     Serial5.write(0xff);
     Serial5.write(0xff);
-    Serial5.print("t1");          //1024 Green colour
+    Serial5.print("t1");     //1024 Green colour
     Serial5.print(".");
     Serial5.print("pco");
     Serial5.print("=");

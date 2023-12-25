@@ -4,7 +4,7 @@
 #include <SPI.h>
 #include <SD.h>
 
-void SD_setup() {
+void SD_LC_setup() {
   if (!SD.begin(254)) { //BUITLIN_SDCARD-254
     Serial.println("Card failed, or not present");
     while (1);
@@ -28,8 +28,8 @@ void LC_getdata() {
 
 void SD_LC_write(){
     if(datafile){
-        unsigned long t=millis();
-        datafile.print(t);
+        LC_time=millis();
+        datafile.print(LC_time);
         datafile.print(",");
         datafile.print(reading_FR);
         datafile.print(",");
@@ -44,7 +44,7 @@ void SD_LC_write(){
 
 void LC_showdata(){
     if(datafile){
-        Serial.print(t);
+        Serial.print(LC_time);
         Serial.print(",");
         Serial.print(reading_FR);
         Serial.print(",");

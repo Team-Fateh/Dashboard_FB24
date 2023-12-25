@@ -1,8 +1,13 @@
-
 #ifndef VARIABLE_H
 #define VARIABLE_H
-#include <FlexCAN_T4.h>
 
+//CAN BUS VARIABLES
+#define RPM_PKT_ID 218099784
+#define TEMPBATT_PKT_ID 218101064
+#define CAN_FREQ  1000E3
+#define SPEED_UPDATE_FREQ 200
+
+#include <FlexCAN_T4.h>
 #include <WS2812Serial.h>
 #include"HX711.h"
 #include"MPU6050.h"
@@ -30,12 +35,13 @@ float volts;
 int _rxLength;
 int _rxIndex;
 uint8_t _rxData[8];
+long unsigned int canThisTime=0, canLastTime=0 , canCheckTime=1000;
 
 //***Gear variables***
 char gear;
 
 //***Xbee***
-unsigned long xbeeLastTime=0,xbeeTIme=50;
+unsigned long int xbeeLastTime=0,xbeeTime=50;
 
 //***IMU_MPU6050***
 #define OUTPUT_READABLE_ACCELGYRO
@@ -95,7 +101,7 @@ unsigned long LC_time;
 
 //**hmi**
 #define hmi_data_rate 200
-long unsigned int hmi_last_time=0;
+long unsigned int hmi_last_time=0,hmiTime=500;
 
 //**rpm_led**
 #define num_led 18
@@ -135,6 +141,7 @@ float SpeedRPM = 0.0;
 float wheelRPM = 0.0;
 
 //**SD_card**
+#define EEPROM_SIZE 10
 File myFile;
 const int chipSelect = BUILTIN_SDCARD;
 String f;
@@ -154,5 +161,9 @@ const char* input;
 char EEPROM_val;
 int filecreate = 0;
 int datalog =0;
-#endif
 
+//**Radiator_check**
+bool radCheck;
+#define radPin 9
+
+#endif

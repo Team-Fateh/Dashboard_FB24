@@ -10,14 +10,14 @@ void send_xbee(){
   Serial3.print(",");
   Serial3.print(gear); //Gear
   Serial3.print(",");
-  Serial3.print(Speed_FR);   //speed_FR
-  Serial3.print(",");
-  Serial3.print(Speed_FL);   //speed_FL
-  Serial3.print(",");
-  Serial3.print(Speed_RR);   //speed_RR
-  Serial3.print(",");
-  Serial3.print(Speed_RL);   //speed_Rl
-  Serial3.print(",");
+  // Serial3.print(Speed_FR);   //speed_FR
+  // Serial3.print(",");
+  // Serial3.print(Speed_FL);   //speed_FL
+  // Serial3.print(",");
+  // Serial3.print(Speed_RR);   //speed_RR
+  // Serial3.print(",");
+  // Serial3.print(Speed_RL);   //speed_Rl
+  // Serial3.print(",");
   Serial3.print("0");   //brake pressure
   Serial3.print(",");
   Serial3.print(volts); //Battery Voltage
@@ -42,7 +42,7 @@ void send_xbee(){
   Serial3.print(",");
   Serial3.print(faz);   //accelerometer z-axis
   Serial3.print(",");   
-  Serial.print(GPS);
+  // Serial.print(GPS); //GPS
   Serial3.print(",");
   Serial3.println("0");   //steering angle  
 }

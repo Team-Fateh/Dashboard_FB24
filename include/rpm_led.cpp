@@ -2,16 +2,9 @@
 #include <variable_def.h>
 #include <WS2812Serial.h>
 
-// void colorWipe(int color) {
-//   for (int i=0; i < leds.numPixels(); i++) {
-//     leds.setPixel(i, color);
-//     leds.show();
-//      }
-
-
 // Usable pins:
 //   Teensy 4.1:  1, 8, 14, 17, 20, 24, 29, 35, 47, 53
-void LED_setup()
+void RPM_LED_setup()
 {
  leds.begin();
 }
@@ -68,10 +61,8 @@ void showLightDis(){                                //Discrete Blue to Green to 
    }
    if(RPM>9500)
    {
-      for (int i=0; i<=light; i++)
-      {
-       
-       leds.setPixel(i,red);
+      for (int i=0; i<=light; i++){
+         leds.setPixel(i,red);
          leds.show(); 
       } 
    }  
@@ -79,20 +70,3 @@ void showLightDis(){                                //Discrete Blue to Green to 
 }
       
 
-// void loop() {
-//   // change all the LEDs in 1.5 seconds
-  
-
-//   colorWipe(RED, microsec);
-//   colorWipe(GREEN, microsec);
-//   colorWipe(BLUE, microsec);
-  
-// }
-
-// void colorWipe(int color, int wait) {
-//   for (int i=0; i < leds.numPixels(); i++) {
-//     leds.setPixel(i, color);
-//     leds.show();
-//     delayMicroseconds(wait);
-//   }
-// }
