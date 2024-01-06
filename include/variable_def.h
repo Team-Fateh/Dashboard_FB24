@@ -18,7 +18,7 @@
 #endif
 
 // ***CAN variables***
-#define can_data_rate 400
+#define can_data_rate 200
 int64_t can_last_time = 0;
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> can2;
 CAN_message_t msg;
@@ -39,6 +39,13 @@ long unsigned int canThisTime=0, canLastTime=0 , canCheckTime=1000;
 
 //***Gear variables***
 char gear;
+#define g_pin1 6
+#define g_pin2 2
+#define g_pin3 8
+#define g_pin4 3
+#define g_pin5 5
+#define g_pin6 7
+#define g_pinN 4
 
 //***Xbee***
 unsigned long int xbeeLastTime=0,xbeeTime=50;
