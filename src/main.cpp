@@ -21,10 +21,10 @@ void setup()
   Serial3.begin(230400);//xbee
   gear_setup();
   can_setup();
+  RPM_LED_setup();
   // accelero_setup();
   // SD_LC_setup();
   // LC_setup();
-  // RPM_LED_setup();
   // setup_SD(); This is called under datalogging function 
   // sd_switch_pin_setup();
   // setup_speed();
@@ -34,10 +34,22 @@ void setup()
  void loop(){
 
    if(millis() - can_last_time >= can_data_rate){
-    gear_val();
+    // gear_val();
     can_get_data();
-    can_show_data();
+    // // can_show_data();
+    // // RPM = 16000;
+    // HMI_print(4,RPM);
+    // HMI_print(5,(int32_t)temp);
+    // HMI_print(10,volts); 
+    // HMI_print(6,(int32_t)Speed);
+
+
     can_last_time = millis();
+  }
+
+   if(millis() -hmi_last_time >= hmiTime){
+    showLightDis();
+  hmi_last_time = millis();
   }
 
  }

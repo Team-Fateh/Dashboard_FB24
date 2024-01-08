@@ -18,7 +18,7 @@
 #endif
 
 // ***CAN variables***
-#define can_data_rate 200
+#define can_data_rate 50
 int64_t can_last_time = 0;
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> can2;
 CAN_message_t msg;
@@ -107,11 +107,11 @@ float calibrationfactor_RL=0;
 unsigned long LC_time; 
 
 //**hmi**
-#define hmi_data_rate 200
-long unsigned int hmi_last_time=0,hmiTime=500;
+#define hmi_data_rate 100
+long unsigned int hmi_last_time=0,hmiTime=50;
 
 //**rpm_led**
-#define num_led 18
+#define num_led 16
 #define ledPin 29
 #define rpm_data_rate 100
 long unsigned int rpm_last_time=0;
