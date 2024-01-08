@@ -34,23 +34,24 @@ void setup()
  void loop(){
 
    if(millis() - can_last_time >= can_data_rate){
-    // gear_val();
     can_get_data();
-    // // can_show_data();
-    // // RPM = 16000;
-    // HMI_print(4,RPM);
-    // HMI_print(5,(int32_t)temp);
-    // HMI_print(10,volts); 
-    // HMI_print(6,(int32_t)Speed);
-
-
     can_last_time = millis();
+    showLightDis();
+  }
+  if(millis() - rpm_last_time >= rpm_data_rate){
+    rpm_last_time = millis();
   }
 
    if(millis() -hmi_last_time >= hmiTime){
-    showLightDis();
-  hmi_last_time = millis();
+    gear_val();
+    HMI_print(4,RPM);
+    HMI_print(5,(int32_t)temp);
+    HMI_print(10,volts); 
+    HMI_print(6,(int32_t)Speed);
+    hmi_last_time = millis();
   }
+
+
 
  }
 

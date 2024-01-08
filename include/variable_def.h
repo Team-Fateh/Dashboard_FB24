@@ -108,12 +108,12 @@ unsigned long LC_time;
 
 //**hmi**
 #define hmi_data_rate 100
-long unsigned int hmi_last_time=0,hmiTime=50;
+long unsigned int hmi_last_time=0,hmiTime=200;
 
 //**rpm_led**
 #define num_led 16
 #define ledPin 29
-#define rpm_data_rate 100
+#define rpm_data_rate 50
 long unsigned int rpm_last_time=0;
 byte drawingMemory[num_led*3];         //  3 bytes per LED
 DMAMEM byte displayMemory[num_led*12]; // 12 bytes per LED

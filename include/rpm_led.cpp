@@ -13,7 +13,6 @@ void showLightDis(){                                //Discrete Blue to Green to 
    for(int i =0; i<=num_led;i++){
    leds.setPixel(i,0);
    }
-   // leds.show();
 
    ledDur=millis();
    if(ledDur-ledOldDur>=300) ledOldDur=millis();
@@ -37,7 +36,6 @@ void showLightDis(){                                //Discrete Blue to Green to 
       {
          leds.setPixel(i,BLUE);
       }
-         leds.show();
       for (int i=6; i<=light; i++)
       {
          leds.setPixel(i,GREEN);
@@ -52,12 +50,10 @@ void showLightDis(){                                //Discrete Blue to Green to 
       {  
          leds.setPixel(i,BLUE);
       }
-         leds.show();
       for (int i=6; i<=10; i++)
       {  
          leds.setPixel(i,GREEN);
       }
-         leds.show();
       for (int i=11; i<=light; i++)
       {  
          leds.setPixel(i,RED);
