@@ -10,8 +10,6 @@ void accelero_setup() {
         Fastwire::setup(400, true);
     #endif
 
-    Serial.begin(115200);
-
     // initialize device
     accelgyro.initialize();
 
@@ -21,8 +19,10 @@ void accelero_setup() {
 
 
 void accelero_getdata(){
-  accelgyro.getAcceleration(&ax, &ay, &az);
-   
+  accelgyro.getAcceleration(&Ax, &Ay, &Az);
+  ax=Ax+ox;
+  ay=Ay+oy;
+  az=Az+oz;
   /**  ROLLING AVERAGE TECHNIQUE
        Smooth out the noisy fluctuations by considering the average of the some past readings instead of relying solely on the current reading   .
 **/
@@ -63,9 +63,10 @@ currentIndexY++;
 }
 
 void accelero_show_data(){
-  Serial.print(fax);
+  Serial.print(ax);
   Serial.print(",");
-  Serial.print(fay);
+  Serial.print(ay);
   Serial.print(",");
-  Serial.println(faz);
+  Serial.println(az);
+  delay(500);
 }

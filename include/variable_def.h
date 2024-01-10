@@ -18,7 +18,7 @@
 #endif
 
 // ***CAN variables***
-#define can_data_rate 50
+#define can_data_rate 40
 int64_t can_last_time = 0;
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> can2;
 CAN_message_t msg;
@@ -48,12 +48,17 @@ char gear;
 #define g_pinN 4
 
 //***Xbee***
-unsigned long int xbeeLastTime=0,xbeeTime=50;
+unsigned long int xbeeLastTime=0,xbeeTime=100;
 
 //***IMU_MPU6050***
 #define OUTPUT_READABLE_ACCELGYRO
 MPU6050 accelgyro;
+int16_t Ax, Ay, Az;
 int16_t ax, ay, az;
+int16_t ox=2500;
+int16_t oy=1200;
+int16_t oz=0;
+
 const int numReadings = 10;  
 int readingsX[numReadings];
 int readingsY[numReadings]; 
@@ -108,7 +113,7 @@ unsigned long LC_time;
 
 //**hmi**
 #define hmi_data_rate 100
-long unsigned int hmi_last_time=0,hmiTime=200;
+long unsigned int hmi_last_time=0,hmiTime=250;
 
 //**rpm_led**
 #define num_led 16
@@ -174,3 +179,4 @@ bool radCheck;
 #define radPin 9
 
 #endif
+

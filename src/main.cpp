@@ -15,31 +15,24 @@
 
 void setup()
  {
-  // EEPROM.begin();
+  EEPROM.begin();
   Serial.begin(115200);//Serial monitor 
   Serial5.begin(9600);//HMI Display 
-  Serial3.begin(230400);//xbee
+  Serial8.begin(230400);//xbee
   gear_setup();
   can_setup();
   RPM_LED_setup();
-  // accelero_setup();
-  // SD_LC_setup();
-  // LC_setup();
-  // setup_SD(); This is called under datalogging function 
-  // sd_switch_pin_setup();
+  accelero_setup();
+  setup_SD(); 
   // setup_speed();
-  // millis();
  }
 
  void loop(){
 
    if(millis() - can_last_time >= can_data_rate){
     can_get_data();
-    can_last_time = millis();
     showLightDis();
-  }
-  if(millis() - rpm_last_time >= rpm_data_rate){
-    rpm_last_time = millis();
+    can_last_time = millis();
   }
 
    if(millis() -hmi_last_time >= hmiTime){
@@ -49,11 +42,19 @@ void setup()
     HMI_print(10,volts); 
     HMI_print(6,(int32_t)Speed);
     hmi_last_time = millis();
+
   }
+  if(millis() - xbeeLastTime >= xbeeTime){
+  // send_xbee();
+  dataLogging();
+  accelero_getdata();
+  xbeeLastTime = millis();
+  }
+  
+  // Serial8.println("HW");
+  
 
-
-
- }
+//  }
 
 // void loop() 
 // {
@@ -65,9 +66,8 @@ void setup()
 //   }
   
 //   //acceleromter 
-//   accelero_getdata();
-//     // accelero_show_data();  
-
+// accelero_getdata();
+// accelero_show_data();  
 //   //gear
 //   gear_setup();
 //   gear_val(); 
@@ -85,14 +85,11 @@ void setup()
 //   dataLogging();
 
 //   //xbee
-//   if((millis() -xbeeLastTime ) > xbeeTime){
-//     send_xbee();
-//     HMI_print(4,RPM);
-//     HMI_print(5,(int32_t)temp);
-//     HMI_print(10,volts); 
-//     HMI_print(6,(int32_t)Speed);
-//     xbeeLastTime = millis();  
-//   }
+
+  // send_xbee();
+
+ }
+  
 
 //   //**No function end in flexcanT4 library**
 
