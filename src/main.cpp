@@ -24,7 +24,7 @@ void setup()
   RPM_LED_setup();
   accelero_setup();
   setup_SD(); 
-  // setup_speed();
+  setup_speed();
  }
 
  void loop(){
@@ -42,16 +42,19 @@ void setup()
     HMI_print(10,volts); 
     HMI_print(6,(int32_t)Speed);
     hmi_last_time = millis();
-
   }
+
   if(millis() - xbeeLastTime >= xbeeTime){
   // send_xbee();
   dataLogging();
   accelero_getdata();
   xbeeLastTime = millis();
+  // Serial.println(digitalRead(speedPin));
+  Serial.println(Speed);
   }
+
+  SpeedCount(400);
   
-  // Serial8.println("HW");
   
 
 //  }

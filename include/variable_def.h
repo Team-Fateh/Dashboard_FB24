@@ -134,8 +134,8 @@ char comm;
 
 //**speed**
 volatile unsigned int totalCounts;
-#define speedPin 34    //front right
-#define slits 28   //Front wheel
+#define speedPin 33    //front right
+#define slits 10   //Front wheel
 int lastTime=0;      
 float Speed;      
 
