@@ -20,46 +20,46 @@ void accelero_setup() {
 
 void accelero_getdata(){
   accelgyro.getAcceleration(&Ax, &Ay, &Az);
-  ax=Ax+ox;
-  ay=Ay+oy;
-  az=Az+oz;
+  ax=(Ax+ox)/16384;
+  ay=(Ay+oy)/16384;
+  az=(Az+oz)/16384;
   /**  ROLLING AVERAGE TECHNIQUE
        Smooth out the noisy fluctuations by considering the average of the some past readings instead of relying solely on the current reading   .
 **/
 
-  totalX = totalX - readingsX[currentIndexX];   // Subtract the oldest reading
-  readingsX[currentIndexX] = ax;               // Store the new reading
-  totalX = totalX + readingsX[currentIndexX]; // Add the new reading
+//   totalX = totalX - readingsX[currentIndexX];   // Subtract the oldest reading
+//   readingsX[currentIndexX] = ax;               // Store the new reading
+//   totalX = totalX + readingsX[currentIndexX]; // Add the new reading
 
-  totalY = totalY - readingsY[currentIndexY]; 
-  readingsY[currentIndexY] = ay;       
-  totalY = totalY + readingsY[currentIndexY];
+//   totalY = totalY - readingsY[currentIndexY]; 
+//   readingsY[currentIndexY] = ay;       
+//   totalY = totalY + readingsY[currentIndexY];
 
-  totalZ= totalZ - readingsZ[currentIndexZ];  
-  readingsZ[currentIndexZ] = az;     
-  totalZ = totalZ + readingsZ[currentIndexZ];
+//   totalZ= totalZ - readingsZ[currentIndexZ];  
+//   readingsZ[currentIndexZ] = az;     
+//   totalZ = totalZ + readingsZ[currentIndexZ];
 
-  currentIndexX++;
-  if (currentIndexX >= numReadings) {
-    currentIndexX = 0;
-  }
-currentIndexY++;
-  if (currentIndexY >= numReadings) {
-    currentIndexY = 0;
-  }
-  currentIndexZ++;
-  if (currentIndexZ >= numReadings) {
-    currentIndexZ = 0;
-  }
+//   currentIndexX++;
+//   if (currentIndexX >= numReadings) {
+//     currentIndexX = 0;
+//   }
+// currentIndexY++;
+//   if (currentIndexY >= numReadings) {
+//     currentIndexY = 0;
+//   }
+//   currentIndexZ++;
+//   if (currentIndexZ >= numReadings) {
+//     currentIndexZ = 0;
+//   }
 
   // Calculate the moving average
 
-  averageX = totalX / numReadings;
-  averageY = totalY / numReadings;
-  averageZ = totalZ / numReadings;
-  fax= (averageX/16384);
-  fay= (averageY/16384);
-  faz= (averageZ/16384);
+  // averageX = totalX / numReadings;
+  // averageY = totalY / numReadings;
+  // averageZ = totalZ / numReadings;
+  // fax= (averageX);
+  // fay= (averageY);
+  // faz= (averageZ);
 }
 
 void accelero_show_data(){
@@ -68,5 +68,4 @@ void accelero_show_data(){
   Serial.print(ay);
   Serial.print(",");
   Serial.println(az);
-  delay(500);
 }

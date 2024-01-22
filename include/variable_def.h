@@ -59,22 +59,22 @@ int16_t ox=2500;
 int16_t oy=1200;
 int16_t oz=0;
 
-const int numReadings = 10;  
-int readingsX[numReadings];
-int readingsY[numReadings]; 
-int readingsZ[numReadings]; 
-int currentIndexX = 0;
-int currentIndexY = 0;  
-int currentIndexZ = 0;     
-int totalX = 0;
-int totalY = 0;
-int totalZ = 0;
-float averageX;
-float averageY;
-float averageZ;
-float fax;
-float fay;
-float faz;
+// const int numReadings = 10;  
+// int readingsX[numReadings];
+// int readingsY[numReadings]; 
+// int readingsZ[numReadings]; 
+// int currentIndexX = 0;
+// int currentIndexY = 0;  
+// int currentIndexZ = 0;     
+// int totalX = 0;
+// int totalY = 0;
+// int totalZ = 0;
+// float averageX;
+// float averageY;
+// float averageZ;
+// float fax;
+// float fay;
+// float faz;
 
 //**loadcell**
 File datafile=SD.open("LC_Data.csv",FILE_WRITE);
@@ -177,6 +177,11 @@ int datalog =0;
 //**Radiator_check**
 bool radCheck;
 #define radPin 9
+
+//**Brake Pressure**
+float brakeread;
+float brakepress;
+#define brakepin 41
 
 #endif
 

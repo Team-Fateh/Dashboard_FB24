@@ -35,6 +35,8 @@ void setup()
     can_last_time = millis();
   }
 
+  SpeedCount(400);
+
    if(millis() -hmi_last_time >= hmiTime){
     gear_val();
     HMI_print(4,RPM);
@@ -45,15 +47,14 @@ void setup()
   }
 
   if(millis() - xbeeLastTime >= xbeeTime){
-  // send_xbee();
+  brakeread = digitalRead(brakepin);
+  brakepress =  25*brakeread;
+  send_xbee();
   dataLogging();
   accelero_getdata();
   xbeeLastTime = millis();
-  // Serial.println(digitalRead(speedPin));
-  Serial.println(Speed);
   }
 
-  SpeedCount(400);
   
   
 
