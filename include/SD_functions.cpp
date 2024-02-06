@@ -77,9 +77,9 @@ void dataLogging(){
     String speed_SD = (String)Speed;
     String battery_SD = (String)volts;
     String brake_SD = (String)brakepress;
-    String accelx_SD = (String)ax;
-    String accely_SD = (String)ay;
-    String accelz_SD = (String)az;
+    String accelx_SD = (String)fax;
+    String accely_SD = (String)fay;
+    String accelz_SD = (String)faz;
     String comma = "," ;
     String end = "\n";
     int m = millis();

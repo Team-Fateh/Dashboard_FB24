@@ -32,9 +32,9 @@ void send_xbee(){
   Serial8.print(",");
   Serial8.print("0");   //rear right load cell
   Serial8.print(",");
-  Serial8.print(ax);   //accelerometer x-axis
+  Serial8.print(fax);   //accelerometer x-axis
   Serial8.print(",");
-  Serial8.print(ay);   //accelerometer y-axis
+  Serial8.print(fay);   //accelerometer y-axis
   Serial8.print(",");
   // Serial8.print(faz);   //accelerometer z-axis
   // Serial8.print(",");   
