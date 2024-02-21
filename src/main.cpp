@@ -38,7 +38,8 @@ void setup()
   SpeedCount(400);
 
    if(millis() -hmi_last_time >= hmiTime){
-    gear_val();
+    // gear_val(); 2016
+    gear2018();//2018
     HMI_print(4,RPM);
     HMI_print(5,(int32_t)temp);
     HMI_print(10,volts); 

@@ -38,14 +38,19 @@ uint8_t _rxData[8];
 long unsigned int canThisTime=0, canLastTime=0 , canCheckTime=1000;
 
 //***Gear variables***
+//GEAR 2018
+int dur;
 char gear;
-#define g_pin1 6
-#define g_pin2 2
-#define g_pin3 8
-#define g_pin4 3
-#define g_pin5 5
-#define g_pin6 7
-#define g_pinN 4
+#define gearPin 7
+
+//GEAR 2016
+// #define g_pin1 6
+// #define g_pin2 2
+// #define g_pin3 8
+// #define g_pin4 3
+// #define g_pin5 5
+// #define g_pin6 7
+// #define g_pinN 4
 
 //***Xbee***
 unsigned long int xbeeLastTime=0,xbeeTime=100;
