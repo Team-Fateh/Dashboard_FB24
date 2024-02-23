@@ -5,14 +5,14 @@
 
 void gear_setup()
 {
-    // pinMode(g_pin1,INPUT_PULLUP);
+    // pinMode(g_pin1,INPUT_PULLUP); gear_2016
     // pinMode(g_pin2,INPUT_PULLUP);
     // pinMode(g_pin3,INPUT_PULLUP);
     // pinMode(g_pin4,INPUT_PULLUP);
     // pinMode(g_pin5,INPUT_PULLUP);
     // pinMode(g_pin6,INPUT_PULLUP);
     // pinMode(g_pinN,INPUT_PULLUP);
-    pinMode(gearPin,INPUT);
+    pinMode(gearPin,INPUT);//gear_2018
 }
 
 // void gear_val()
@@ -130,7 +130,7 @@ void gear2018(){
         gear ='1';
     }
 
-    if(dur>=920&&dur<=1200)
+    if(dur>=920&&dur<=1210)
     {
         Serial5.print("t");
         Serial5.print("1");

@@ -20,8 +20,8 @@ void LC_setup(){
 }
 
 void LC_getdata() {
-    reading_FR =LC_FR.get_value()/calibrationfactor_FR+LC_FR_offset1+LC_FR_offset2; //In  Kg
-    reading_FL =LC_FL.get_value();
+    reading_FL =LC_FL.get_value()/calibrationfactor_FL+LC_FL_offset1+LC_FL_offset2; //In  Kg
+    reading_FR =LC_FR.get_value();
     reading_RR =LC_RR.get_value();
     reading_RL =LC_RL.get_value();
 }
