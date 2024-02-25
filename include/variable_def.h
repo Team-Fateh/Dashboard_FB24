@@ -100,20 +100,17 @@ float reading_FL;
 float reading_RR;
 float reading_RL;
 
-float LC_FL_offset1=0.69;
-float LC_FL_offset2=0.55;
-float LC_FR_offset1=0;
-float LC_FR_offset2=0;
+float LC_FL_offset1=0.27;
+float LC_FL_offset2=0.67;
+float LC_FR_offset1=-0.79;
+float LC_FR_offset2=-0.60;
 float LC_RR_offset1=0;
 float LC_RR_offset2=0;
 float LC_RL_offset1=0;
 float LC_RL_offset2=0;
 
-float calibrationfactor_FL=-21500;
-float calibrationfactor_FR=0;
-float calibrationfactor_RR=0;
-float calibrationfactor_RL=0;
-
+float calibrationfactor_FL=-19570.3478;
+float calibrationfactor_FR=17259.5652;
 unsigned long LC_time; 
 
 //**hmi**

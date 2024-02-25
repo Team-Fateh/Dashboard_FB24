@@ -26,7 +26,7 @@ void setup()
   setup_SD(); 
   setup_speed();
   LC_setup();
-  SD_LC_setup();
+  // SD_LC_setup();
  }
 
  void loop(){
@@ -38,8 +38,6 @@ void setup()
   }
 
   SpeedCount(400);
-  LC_getdata();
-  LC_showdata();
    if(millis() -hmi_last_time >= hmiTime){
     
     //**gear_2016**
@@ -65,6 +63,5 @@ void setup()
     xbeeLastTime = millis();
   }
   LC_getdata();
-  LC_showdata();
  }
 
