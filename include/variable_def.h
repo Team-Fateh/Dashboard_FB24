@@ -110,7 +110,7 @@ float LC_RL_offset1=0;
 float LC_RL_offset2=0;
 
 float calibrationfactor_FL=-19570.3478;
-float calibrationfactor_FR=17259.5652;
+float calibrationfactor_FR=-17259.5652;
 unsigned long LC_time; 
 
 //**hmi**

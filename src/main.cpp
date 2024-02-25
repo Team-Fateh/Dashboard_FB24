@@ -30,6 +30,11 @@ void setup()
  }
 
  void loop(){
+  // if(millis()-LC_time>=200){
+  //   LC_getdata();
+  //   LC_time=millis();
+  //   LC_showdata();
+  // }
 
    if(millis() - can_last_time >= can_data_rate){
     can_get_data();
@@ -40,11 +45,12 @@ void setup()
   SpeedCount(400);
    if(millis() -hmi_last_time >= hmiTime){
     
-    //**gear_2016**
+    // **gear_2016**
     // gear_val();
 
     //**gear_2018**
     dur= pulseIn(gearPin,HIGH);
+    // Serial.println(dur);
     gear2018();
 
     HMI_print(4,RPM);
@@ -62,6 +68,5 @@ void setup()
     accelero_getdata();
     xbeeLastTime = millis();
   }
-  LC_getdata();
- }
+  }
 

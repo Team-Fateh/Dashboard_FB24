@@ -20,7 +20,7 @@ void setup_SD(){
         EEPROM.write(i,tempo);
         //The Teensy EEPROM library handles the commit internally.
         myFile=SD.open(file_name,FILE_WRITE);
-        myFile.write("Time,RPM,Coolant Temperature,Gear,Speed,Brake Pressure,Battery Voltage,LC_FL,LC_FR,Radiator,Data Logging,Throttle,Brake Temperature,LoadCell FL, LoadCell FR,LoadCell RL,LoadCell RR,Accelerometer X,Accelerometer Y,Accelerometer Z,Steering Angle\n");
+        myFile.write("Time,RPM,Coolant Temperature,Gear,Speed,Brake Pressure,Battery Voltage,LC_FL,LC_FR,Radiator,Data Logging,Throttle,Brake Temperature,Accelerometer X,Accelerometer Y,Accelerometer Z,Steering Angle\n");
         myFile.close();
 }
 
