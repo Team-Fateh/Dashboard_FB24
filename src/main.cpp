@@ -14,7 +14,7 @@
 #include<variable_def.h>
 
 void setup()
- {
+{
   EEPROM.begin();
   Serial.begin(115200);//Serial monitor 
   Serial5.begin(9600);//HMI Display 
@@ -26,24 +26,24 @@ void setup()
   setup_SD(); 
   setup_speed();
   LC_setup();
-  // SD_LC_setup();
+  //SD_LC_setup();
  }
 
- void loop(){
-  // if(millis()-LC_time>=200){
-  //   LC_getdata();
-  //   LC_time=millis();
-  //   LC_showdata();
-  // }
+void loop(){
+  if(millis()-LC_time>=100){
+    LC_getdata();
+    LC_time=millis();
+    LC_showdata();
+  }
 
-   if(millis() - can_last_time >= can_data_rate){
+  if(millis() - can_last_time >= can_data_rate){
     can_get_data();
     showLightDis();
     can_last_time = millis();
   }
 
   SpeedCount(400);
-   if(millis() -hmi_last_time >= hmiTime){
+    if(millis() -hmi_last_time >= hmiTime){
     
     // **gear_2016**
     // gear_val();
@@ -68,5 +68,5 @@ void setup()
     accelero_getdata();
     xbeeLastTime = millis();
   }
-  }
+}
 
