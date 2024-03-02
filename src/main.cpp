@@ -32,7 +32,6 @@ void setup()
 void loop(){
   if(millis()-LC_time>=100){
     LC_getdata();
-    LC_time=millis();
     LC_showdata();
   }
 

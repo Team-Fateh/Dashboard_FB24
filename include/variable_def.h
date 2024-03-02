@@ -84,10 +84,10 @@ int16_t oz=0;
 //**loadcell**
 File datafile=SD.open("LC_Data.csv",FILE_WRITE);
 // HX711 circuit wiring
-#define LC_DT_FL 27
-#define LC_SCK_FL 26
 #define LC_DT_FR 25
 #define LC_SCK_FR 24
+#define LC_DT_FL 26
+#define LC_SCK_FL 27
 #define LC_DT_RL 22
 #define LC_SCK_RL 23
 #define LC_DT_RR 37
@@ -100,17 +100,17 @@ float reading_FL;
 float reading_RR;
 float reading_RL;
 
-float LC_FL_offset1=0.27;
-float LC_FL_offset2=0.67;
-float LC_FR_offset1=-0.79;
-float LC_FR_offset2=-0.60;
+float LC_FR_offset1=0.27;
+float LC_FR_offset2=0.67;
+float LC_FL_offset1=-0.79;
+float LC_FL_offset2=-0.60;
 float LC_RR_offset1=0;
 float LC_RR_offset2=0;
 float LC_RL_offset1=0;
 float LC_RL_offset2=0;
 
-float calibrationfactor_FL=-19570.3478;
-float calibrationfactor_FR=-17259.5652;
+float calibrationfactor_FR=-19570.3478;
+float calibrationfactor_FL=-17259.5652;
 unsigned long LC_time; 
 
 //**hmi**

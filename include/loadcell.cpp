@@ -15,15 +15,13 @@
 void LC_setup(){
   LC_FR.begin(LC_DT_FR,LC_SCK_FR);
   LC_FL.begin(LC_DT_FL,LC_SCK_FL);
-  LC_RL.begin(LC_DT_RL,LC_SCK_RL);
-  LC_RR.begin(LC_DT_RR,LC_SCK_RR);
-  // digitalWrite(LC_SCK_FL,HIGH);
-  // digitalWrite(LC_SCK_FR,HIGH);
+  // LC_RL.begin(LC_DT_RL,LC_SCK_RL);
+  // LC_RR.begin(LC_DT_RR,LC_SCK_RR);
 }
 
 void LC_getdata() {
-    reading_FL =LC_FL.get_value()/calibrationfactor_FL+LC_FL_offset1+LC_FL_offset2; //In  Kg
-    reading_FR =LC_FR.get_value()/calibrationfactor_FR+LC_FR_offset1+LC_FR_offset2; //Issue
+    reading_FL =LC_FL.get_value()/calibrationfactor_FL+LC_FL_offset1+LC_FL_offset2; //Issue
+    reading_FR =LC_FR.get_value()/calibrationfactor_FR+LC_FR_offset1+LC_FR_offset2; 
     // reading_RR =LC_RR.get_value();
     // reading_RL =LC_RL.get_value();
 }
