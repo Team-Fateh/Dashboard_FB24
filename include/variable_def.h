@@ -86,8 +86,8 @@ File datafile=SD.open("LC_Data.csv",FILE_WRITE);
 // HX711 circuit wiring
 #define LC_DT_FR 25
 #define LC_SCK_FR 24
-#define LC_DT_FL 26
-#define LC_SCK_FL 27
+#define LC_DT_FL 27
+#define LC_SCK_FL 26
 #define LC_DT_RL 22
 #define LC_SCK_RL 23
 #define LC_DT_RR 37
