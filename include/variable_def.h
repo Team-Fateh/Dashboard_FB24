@@ -38,14 +38,19 @@ uint8_t _rxData[8];
 long unsigned int canThisTime=0, canLastTime=0 , canCheckTime=1000;
 
 //***Gear variables***
+//GEAR 2018
+int dur;
 char gear;
-#define g_pin1 6
-#define g_pin2 2
-#define g_pin3 8
-#define g_pin4 3
-#define g_pin5 5
-#define g_pin6 7
-#define g_pinN 4
+#define gearPin 7
+
+//GEAR 2016
+// #define g_pin1 6
+// #define g_pin2 2
+// #define g_pin3 8
+// #define g_pin4 3
+// #define g_pin5 5
+// #define g_pin6 7
+// #define g_pinN 4
 
 //***Xbee***
 unsigned long int xbeeLastTime=0,xbeeTime=100;
@@ -79,10 +84,10 @@ float faz;
 //**loadcell**
 File datafile=SD.open("LC_Data.csv",FILE_WRITE);
 // HX711 circuit wiring
-#define LC_DT_FL 27
-#define LC_SCK_FL 26
 #define LC_DT_FR 25
 #define LC_SCK_FR 24
+#define LC_DT_FL 27
+#define LC_SCK_FL 26
 #define LC_DT_RL 22
 #define LC_SCK_RL 23
 #define LC_DT_RR 37
@@ -95,20 +100,17 @@ float reading_FL;
 float reading_RR;
 float reading_RL;
 
-float LC_FR_offset1=0.69;
-float LC_FR_offset2=0.55;
-float LC_FL_offset1=0;
-float LC_FL_offset2=0;
+float LC_FR_offset1=0.27;
+float LC_FR_offset2=0.67;
+float LC_FL_offset1=-0.79;
+float LC_FL_offset2=-0.60;
 float LC_RR_offset1=0;
 float LC_RR_offset2=0;
 float LC_RL_offset1=0;
 float LC_RL_offset2=0;
 
-float calibrationfactor_FR=-21500;
-float calibrationfactor_FL=0;
-float calibrationfactor_RR=0;
-float calibrationfactor_RL=0;
-
+float calibrationfactor_FR=-19570.3478;
+float calibrationfactor_FL=-17259.5652;
 unsigned long LC_time; 
 
 //**hmi**

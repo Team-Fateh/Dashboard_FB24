@@ -14,7 +14,7 @@
 #include<variable_def.h>
 
 void setup()
- {
+{
   EEPROM.begin();
   Serial.begin(115200);//Serial monitor 
   Serial5.begin(9600);//HMI Display 
@@ -25,20 +25,33 @@ void setup()
   accelero_setup();
   setup_SD(); 
   setup_speed();
+  LC_setup();
+  //SD_LC_setup();
  }
 
- void loop(){
+void loop(){
+  if(millis()-LC_time>=100){
+    LC_getdata();
+    LC_showdata();
+  }
 
-   if(millis() - can_last_time >= can_data_rate){
+  if(millis() - can_last_time >= can_data_rate){
     can_get_data();
     showLightDis();
     can_last_time = millis();
   }
 
   SpeedCount(400);
+    if(millis() -hmi_last_time >= hmiTime){
+    
+    // **gear_2016**
+    // gear_val();
 
-   if(millis() -hmi_last_time >= hmiTime){
-    gear_val();
+    //**gear_2018**
+    dur= pulseIn(gearPin,HIGH);
+    // Serial.println(dur);
+    gear2018();
+
     HMI_print(4,RPM);
     HMI_print(5,(int32_t)temp);
     HMI_print(10,volts); 
@@ -47,93 +60,12 @@ void setup()
   }
 
   if(millis() - xbeeLastTime >= xbeeTime){
-  brakeread = digitalRead(brakepin);
-  brakepress =  25*brakeread;
-  send_xbee();
-  dataLogging();
-  accelero_getdata();
-  xbeeLastTime = millis();
+    brakeread = digitalRead(brakepin);
+    brakepress =  25*brakeread;
+    send_xbee();
+    dataLogging();
+    accelero_getdata();
+    xbeeLastTime = millis();
   }
+}
 
-  
-  
-
-//  }
-
-// void loop() 
-// {
-//   //CAN
-//   if(millis() - can_last_time >= can_data_rate){
-//     can_get_data();
-//     can_show_data();
-//     can_last_time = millis();
-//   }
-  
-//   //acceleromter 
-// accelero_getdata();
-// accelero_show_data();  
-//   //gear
-//   gear_setup();
-//   gear_val(); 
-
-//   //speed
-//   SpeedCount(SPEED_UPDATE_FREQ);
-
-//   //Radiator_check
-//   check_rad();
-
-//   //RPM_LED
-//   showLightDis();
-
-//   //SD_datalogging 
-//   dataLogging();
-
-//   //xbee
-
-  // send_xbee();
-
- }
-  
-
-//   //**No function end in flexcanT4 library**
-
-//   //hmi 
-//   // if(millis() -hmi_last_time >= hmiTime){
-//   //   can2.end();
-//   //   can2.begin(CAN_FREQ);
-//   // }
-
-//   if(canThisTime - canLastTime >= canCheckTime){ 
-//     hmiCANRed();
-//   }
-
-//   // Serial.print(millis());
-//   // Serial.print(",");
-//   // Serial.print(RPM);            //RPM 
-//   // Serial.print(",");    
-//   // Serial.print(temp);           //temp
-//   // Serial.print(",");    
-//   // Serial.print(gear);           //gear
-//   // Serial.print(",");    
-//   // Serial.print(Speed);          //speed
-//   // Serial.print(",");    
-//   // Serial.print(volts);          //battery_voltage
-//   // Serial.print(",");    
-//   // Serial.print(datalog  );      //datalog_check
-//   // Serial.print(",");    
-//   // Serial.print(radCheck);       //radiator_check
-//   // Serial.print(",");    
-//   // Serial.print(fax);            //accelerometer x-axis
-//   // Serial.print(",");    
-//   // Serial.print(fay);            //accelerometer y-axis
-//   // Serial.print(",");            
-//   // Serial.print(faz);            //accelerometer z-axis
-//   // Serial.print(",");    
-//   // Serial.print(reading_FL);     //Front_left_LC
-//   // Serial.print(",");    
-//   // Serial.print(reading_FR);     //Front_right_LC
-//   // Serial.print(",");    
-//   // Serial.print(reading_RL);     //Rear_left_LC
-//   // Serial.print(",");  
-//   // Serial.println(reading_RR);   //Rear_right_LC
-// }

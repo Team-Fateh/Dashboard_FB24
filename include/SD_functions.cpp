@@ -20,7 +20,7 @@ void setup_SD(){
         EEPROM.write(i,tempo);
         //The Teensy EEPROM library handles the commit internally.
         myFile=SD.open(file_name,FILE_WRITE);
-        myFile.write("Time,RPM,Coolant Temperature,Gear,Speed,Brake Pressure,Battery Voltage,Radiator,Data Logging,Throttle,Brake Temperature,LoadCell FL, LoadCell FR,LoadCell RL,LoadCell RR,Accelerometer X,Accelerometer Y,Accelerometer Z,Steering Angle\n");
+        myFile.write("Time,RPM,Coolant Temperature,Gear,Speed,Brake Pressure,Battery Voltage,LC_FL,LC_FR,Radiator,Data Logging,Throttle,Brake Temperature,Accelerometer X,Accelerometer Y,Accelerometer Z,Steering Angle\n");
         myFile.close();
 }
 
@@ -77,14 +77,16 @@ void dataLogging(){
     String speed_SD = (String)Speed;
     String battery_SD = (String)volts;
     String brake_SD = (String)brakepress;
-    String accelx_SD = (String)fax;
-    String accely_SD = (String)fay;
-    String accelz_SD = (String)faz;
+    String accelx_SD = (String)ax;
+    String accely_SD = (String)ay;
+    String accelz_SD = (String)az;
+    String LC_FL_SD=(String)reading_FL;
+    String LC_FR_SD=(String)reading_FR;
     String comma = "," ;
     String end = "\n";
     int m = millis();
     String mystr = m+comma+RPM_SD+comma+temp_SD+comma+gear_SD
-                    +comma+Speed+comma+brake_SD+comma+battery_SD+comma+"1"
+                    +comma+Speed+comma+brake_SD+comma+battery_SD+comma+LC_FL_SD+comma+LC_FR_SD+comma+"1"
                     +comma+"1"+comma+"0"+comma+"0"+comma+"0"+comma
                     +"0"+comma+"0"+comma+"0"+comma+accelx_SD+comma+accely_SD
                     +comma+accelz_SD+comma+"0"+end; 
