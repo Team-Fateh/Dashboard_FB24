@@ -84,11 +84,11 @@ void dataLogging(){
     String LC_FR_SD=(String)reading_FR;
     String comma = "," ;
     String end = "\n";
-    int m = millis();
+    unsigned m = millis();
     String mystr = m+comma+RPM_SD+comma+temp_SD+comma+gear_SD
                     +comma+Speed+comma+brake_SD+comma+battery_SD+comma+LC_FL_SD+comma+LC_FR_SD+comma+"1"
-                    +comma+"1"+comma+"0"+comma+"0"+comma+"0"+comma
-                    +"0"+comma+"0"+comma+"0"+comma+accelx_SD+comma+accely_SD
+                    +comma+"1"+comma+"0"+comma+"0"+comma
+                    +accelx_SD+comma+accely_SD
                     +comma+accelz_SD+comma+"0"+end; 
     appendFile(file_name, mystr);
   }
