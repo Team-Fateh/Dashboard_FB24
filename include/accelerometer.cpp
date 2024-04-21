@@ -63,9 +63,9 @@ void accelero_getdata(){
 }
 
 void accelero_show_data(){
-  Serial.print(ax);
+  Serial.print(Ax);
   Serial.print(",");
-  Serial.print(ay);
+  Serial.print(Ay);
   Serial.print(",");
-  Serial.println(az);
+  Serial.println(Az);
 }

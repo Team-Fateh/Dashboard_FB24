@@ -40,7 +40,7 @@ long unsigned int canThisTime=0, canLastTime=0 , canCheckTime=1000;
 //***Gear variables***
 //GEAR 2018
 int dur;
-char gear;
+char gear='N';
 #define gearPin 7
 
 //GEAR 2016
@@ -111,7 +111,8 @@ float LC_RL_offset2=0;
 
 float calibrationfactor_FR=-19570.3478;
 float calibrationfactor_FL=-17259.5652;
-unsigned long LC_time; 
+unsigned long LC_time=100; 
+unsigned long LC_Last_Time;
 
 //**hmi**
 #define hmi_data_rate 100
