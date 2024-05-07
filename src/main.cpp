@@ -33,7 +33,7 @@ void loop()
 {
   if(millis()-LC_Last_Time>=LC_time){
    LC_getdata();
-   LC_showdata();
+  //  LC_showdata();
    LC_Last_Time=millis();
  }
 
@@ -46,12 +46,14 @@ void loop()
  SpeedCount(400);
    if(millis() -hmi_last_time >= hmiTime){
    
-   // **gear_2016**
+   //**gear_2016**
   //  gear_val();
+  //  Serial.println(gear);
 
-   //**gear_2018**
+  //  **gear_2018**
   //  dur= pulseIn(gearPin,HIGH);
-   gear2018();
+  //  gear2018();
+  //  Serial.println(dur);
 
    HMI_print(4,RPM);
    HMI_print(5,(int32_t)temp);
@@ -65,7 +67,7 @@ if(millis() -xbeeLastTime >= xbeeTime){
    brakepress =  25*brakeread;
    send_xbee();
    dataLogging();
-//   accelero_getdata();
+// accelero_getdata();
 // accelero_show_data();
 
    xbeeLastTime = millis();
