@@ -63,9 +63,9 @@ currentIndexY++;
 }
 
 void accelero_show_data(){
-  Serial.print(fax);
+  Serial.print(Ax);
   Serial.print(",");
-  Serial.print(fay);
+  Serial.print(Ay);
   Serial.print(",");
-  Serial.println(faz);
+  Serial.println(Az);
 }

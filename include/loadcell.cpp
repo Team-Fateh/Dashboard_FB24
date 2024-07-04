@@ -43,8 +43,7 @@ void LC_getdata() {
 // }
 
 void LC_showdata(){
-  LC_time=millis();
-  Serial.print(LC_time);
+  Serial.print(millis());
   Serial.print(",");
   Serial.print(reading_FL);
   Serial.print(",");
@@ -54,6 +53,4 @@ void LC_showdata(){
   // Serial.print(",");
   // Serial.println(reading_FL);
 }
-
-
 

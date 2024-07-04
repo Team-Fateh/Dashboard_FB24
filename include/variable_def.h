@@ -43,7 +43,7 @@ int dur;
 char gear;
 #define gearPin 7
 
-//GEAR 2016
+// GEAR 2016
 // #define g_pin1 6
 // #define g_pin2 2
 // #define g_pin3 8
@@ -111,7 +111,8 @@ float LC_RL_offset2=0;
 
 float calibrationfactor_FR=-19570.3478;
 float calibrationfactor_FL=-17259.5652;
-unsigned long LC_time; 
+unsigned long LC_time=100; 
+unsigned long LC_Last_Time;
 
 //**hmi**
 #define hmi_data_rate 100

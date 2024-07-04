@@ -15,7 +15,7 @@
 
 void setup()
 {
-  EEPROM.begin();
+  //EEPROM.begin();
   Serial.begin(115200);//Serial monitor 
   Serial5.begin(9600);//HMI Display 
   Serial8.begin(230400);//xbee
@@ -26,46 +26,52 @@ void setup()
   setup_SD(); 
   setup_speed();
   LC_setup();
-  //SD_LC_setup();
+  // SD_LC_setup();
  }
 
-void loop(){
-  if(millis()-LC_time>=100){
-    LC_getdata();
-    LC_showdata();
-  }
+void loop()
+{
+  if(millis()-LC_Last_Time>=LC_time){
+   LC_getdata();
+  //  LC_showdata();
+   LC_Last_Time=millis();
+ }
 
-  if(millis() - can_last_time >= can_data_rate){
-    can_get_data();
-    showLightDis();
-    can_last_time = millis();
-  }
+ if(millis() - can_last_time >= can_data_rate){
+   can_get_data();
+   showLightDis();
+   can_last_time = millis();
+ }
 
-  SpeedCount(400);
-    if(millis() -hmi_last_time >= hmiTime){
-    
-    // **gear_2016**
-    // gear_val();
+ SpeedCount(400);
+   if(millis() -hmi_last_time >= hmiTime){
+   
+   //**gear_2016**
+  //  gear_val();
+  //  Serial.println(gear);
 
-    //**gear_2018**
-    dur= pulseIn(gearPin,HIGH);
-    // Serial.println(dur);
-    gear2018();
+  //  **gear_2018**
+  //  dur= pulseIn(gearPin,HIGH);
+  //  gear2018();
+  //  Serial.println(dur);
 
-    HMI_print(4,RPM);
-    HMI_print(5,(int32_t)temp);
-    HMI_print(10,volts); 
-    HMI_print(6,(int32_t)Speed);
-    hmi_last_time = millis();
-  }
+   HMI_print(4,RPM);
+   HMI_print(5,(int32_t)temp);
+   HMI_print(10,volts); 
+   HMI_print(6,(int32_t)Speed);
+   hmi_last_time = millis();
+ }
 
-  if(millis() - xbeeLastTime >= xbeeTime){
-    brakeread = digitalRead(brakepin);
-    brakepress =  25*brakeread;
-    send_xbee();
-    dataLogging();
-    accelero_getdata();
-    xbeeLastTime = millis();
-  }
+if(millis() -xbeeLastTime >= xbeeTime){
+   brakeread = digitalRead(brakepin);
+   brakepress =  25*brakeread;
+   send_xbee();
+   dataLogging();
+// accelero_getdata();
+// accelero_show_data();
+
+   xbeeLastTime = millis();
+ }
 }
-
+//
+//
